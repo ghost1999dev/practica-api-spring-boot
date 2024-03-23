@@ -12,27 +12,28 @@ import com.practicamarvelapi.demo.controller.ComicResponse.ComicsResponse;
 
 @FeignClient(name = "marvel", url = "${url.marvel}/v1/public")
 public interface MarvelComicsClient {
-    @GetMapping("/comics")
-    public ComicsResponse getAll(@RequestParam(value = "ts") Long timeStamp,
-            @RequestParam(value = "apikey") String publicKey,
-            @RequestParam(value = "hash") String hashMD5);
+        @GetMapping("/comics")
+        public ComicsResponse getAll(@RequestParam(value = "ts") Long timeStamp,
+                        @RequestParam(value = "apikey") String publicKey,
+                        @RequestParam(value = "hash") String hashMD5);
 
-            @GetMapping("/comics/{comicId}")
-            public ComicsFindByIdResponse getComicById(@RequestParam(value = "ts") Long timeStamp,
-                    @RequestParam(value = "apikey") String publicKey,
-                    @RequestParam(value = "hash") String hashMD5,
-                    @PathVariable("comicId")String comicId);
+        @GetMapping("/comics/{comicId}")
+        public ComicsFindByIdResponse getComicById(@RequestParam(value = "ts") Long timeStamp,
+                        @RequestParam(value = "apikey") String publicKey,
+                        @RequestParam(value = "hash") String hashMD5,
+                        @PathVariable("comicId") String comicId);
 
-    @GetMapping("/comics/{comicId}/characters")
-    public CharacterResponse getCharactersByComicId(@RequestParam(value = "ts") Long timeStamp,
-            @RequestParam(value = "apikey") String publicKey,
-            @RequestParam(value = "hash") String hashMD5,
-            @PathVariable("comicId") String comicId);
+        @GetMapping("/comics/{comicId}/characters")
+        public CharacterResponse getCharactersByComicId(@RequestParam(value = "ts") Long timeStamp,
+                        @RequestParam(value = "apikey") String publicKey,
+                        @RequestParam(value = "hash") String hashMD5,
+                        @PathVariable("comicId") String comicId);
 
-            @GetMapping("/characters/{characterId}")
-        public CharacterImageDescriptionResponse getImageDescriptionCharactersByCharactersId(@RequestParam(value = "ts") Long timeStamp,
-                @RequestParam(value = "apikey") String publicKey,
-                @RequestParam(value = "hash") String hashMD5,
-                @PathVariable("characterId") String characterId);
+        @GetMapping("/characters/{characterId}")
+        public CharacterImageDescriptionResponse getImageDescriptionCharactersByCharactersId(
+                        @RequestParam(value = "ts") Long timeStamp,
+                        @RequestParam(value = "apikey") String publicKey,
+                        @RequestParam(value = "hash") String hashMD5,
+                        @PathVariable("characterId") String characterId);
 
 }

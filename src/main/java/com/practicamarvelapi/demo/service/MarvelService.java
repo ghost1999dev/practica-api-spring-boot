@@ -5,6 +5,9 @@ import java.util.Date;
 import org.springframework.stereotype.Service;
 import org.apache.commons.codec.digest.DigestUtils;
 
+
+import com.practicamarvelapi.demo.Entity.User;
+import com.practicamarvelapi.demo.Entity.UserRepository;
 import com.practicamarvelapi.demo.client.MarvelComicsClient;
 import com.practicamarvelapi.demo.controller.CharacterImageDescriptionResponse.CharacterImageDescriptionResponse;
 import com.practicamarvelapi.demo.controller.CharacterResponse.CharacterItemsResponse;
@@ -21,7 +24,8 @@ public class MarvelService {
     private static final String PRIVATE_KEY = "4bca9a2c14ee389adc4a2150e22b530799a74b91";
 
     private MarvelComicsClient client;
-
+    private final UserRepository userRepository;
+   
     public ComicsResponse findAll() {
         Long timeStamp = new Date().getTime();
         return client.getAll(timeStamp, PUBLIC_KEY, buildHash(timeStamp));
@@ -40,6 +44,12 @@ public class MarvelService {
         Long timeStamp = new Date().getTime();
         return client.getImageDescriptionCharactersByCharactersId(timeStamp, PUBLIC_KEY, buildHash(timeStamp), characterId);
     }
+
+    public void createUser(User user){
+        userRepository.save(user);
+    }
+
+    
 
     private String buildHash(Long timeStamp) {
         return DigestUtils.md5Hex(timeStamp + PRIVATE_KEY + PUBLIC_KEY);
