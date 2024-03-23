@@ -12,3 +12,17 @@
 
 ## API de Marvel - Spring Boot
 Esta es una API en Spring Boot diseñada para consumir el API de Marvel y proporcionar información sobre personajes, cómics y más.
+### Caracteristicas
+- **Obtener el listado de comic que tiene un personajes especifico**: Obten informacion detallada sobre el comic de el personaje en especifico.
+- **Obtener la imagen y la descripcion de un personaje en especifico**: Obtiene la descripcion y la imagen del personaje en especifico
+- **Mostrar la lista de comic completas**: Obtiene la lista de comics completas
+- **Mostrar comic filtrado por id**: Muestra la lista de comic por id
+- **Mostrar las busquedas que cualquier usuario haya hecho relacionadas a historietas**:
+
+### Endpoints Disponibles
+- `/comics`: Endpoint para obtener la informacion de los comics.
+- `/comics/{comicId}` Muestra la lista de comic por id.
+- `/comics/{comicId}/characters` Muestra el listado de comic que tiene un personaje en especifico.
+- `/characters/{characterId}` Muestra la imagen y descripcion de un personaje especifico.
+
+
