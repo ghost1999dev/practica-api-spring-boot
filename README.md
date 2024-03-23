@@ -20,9 +20,9 @@ Esta es una API en Spring Boot diseñada para consumir el API de Marvel y propor
 - **Mostrar las busquedas que cualquier usuario haya hecho relacionadas a historietas**:
 
 ### Endpoints Disponibles
-- `/comics`: Endpoint para obtener la informacion de los comics.
-- `/comics/{comicId}` Muestra la lista de comic por id.
-- `/comics/{comicId}/characters` Muestra el listado de comic que tiene un personaje en especifico.
-- `/characters/{characterId}` Muestra la imagen y descripcion de un personaje especifico.
+- `localhost:8080/marvel/comics`: Endpoint para obtener la informacion de los comics.
+- `localhost:8080/marvel/comics/{comicId}` Muestra la lista de comic por id.
+- `localhost:8080/marvel/comics/{comicId}/characters` Muestra el listado de comic que tiene un personaje en especifico.
+- `localhost:8080/marvel/characters/{characterId}` Muestra la imagen y descripcion de un personaje especifico. Ademas al ejecutar el endpoint alguna informacion se guarda en la base de datos de manera interna.
 
 
